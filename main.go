@@ -19,8 +19,8 @@ var nodesPt = `"""Lookup nodes by a list of IDs."""
   ): [Node]!`
 
 var emptyQueryPt = `type Query {
-
-
+  
+  
 }`
 
 func main() {
