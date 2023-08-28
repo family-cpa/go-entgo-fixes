@@ -31,8 +31,6 @@ func main() {
 		body = bytes.Replace(body, []byte(nodePt), []byte(""), -1)
 		body = bytes.Replace(body, []byte(nodesPt), []byte(""), -1)
 
-		log.Printf("%s: %s", file, body)
-
 		rewrite, _ := os.OpenFile(path+file, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0644)
 		_, err = rewrite.Write(body)
 		if err != nil {
