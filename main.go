@@ -18,6 +18,11 @@ var nodesPt = `"""Lookup nodes by a list of IDs."""
     ids: [ID!]!
   ): [Node]!`
 
+var emptyQueryPt = `type Query {
+
+
+}`
+
 func main() {
 	path, _ := os.Getwd()
 	schemaFiles := []string{"/graph/ent.graphql"}
@@ -30,6 +35,7 @@ func main() {
 
 		body = bytes.Replace(body, []byte(nodePt), []byte(""), -1)
 		body = bytes.Replace(body, []byte(nodesPt), []byte(""), -1)
+		body = bytes.Replace(body, []byte(emptyQueryPt), []byte(""), -1)
 
 		rewrite, _ := os.OpenFile(path+file, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0644)
 		_, err = rewrite.Write(body)
